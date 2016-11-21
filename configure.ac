@@ -13,6 +13,7 @@ AC_CONFIG_MACRO_DIR([autoconf])
 AM_INIT_AUTOMAKE([dist-bzip2])
 ENCAP_PKG([], [postinstall-encap])
 
+AM_MAINTAINER_MODE([enable])
 
 dnl ### Load subdirectory modules. ##################################
 PSG_MODULE([compat])
