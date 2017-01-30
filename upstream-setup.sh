@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readonly UPSTREAM_REPO="git://repo.or.cz/libtar"
+readonly UPSTREAM_REPO="https://github.com/tklauser/libtar.git"
 
 echo "Add upstream remote: ${UPSTREAM_REPO}"
 git remote add upstream ${UPSTREAM_REPO}
