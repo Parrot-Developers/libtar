@@ -6,6 +6,8 @@ LOCAL_MODULE := libtar
 LOCAL_DESCRIPTION := tar library
 LOCAL_CATEGORY_PATH := libs
 
+LOCAL_INSTALL_HEADERS := compat/tar.h:usr/include/tar.h
+
 LOCAL_EXPORT_LDLIBS += \
 	-ltar
 
