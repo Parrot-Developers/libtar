@@ -76,7 +76,7 @@ all: ${ALL}
 .PHONY: clean distclean install
 
 libtar.la: ${LIBTAR_OBJS} ${LTLIBOBJS}
-	$(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -o libtar.la $(LIBTAR_OBJS) $(LTLIBOBJS) -rpath $(libdir)
+	$(LIBTOOL) --mode=link $(CC) $(CFLAGS) $(LDFLAGS) -avoid-version -o libtar.la $(LIBTAR_OBJS) $(LTLIBOBJS) -rpath $(libdir)
 #	${AR} rc libtar.a ${LIBTAR_OBJS} ${LIBOBJS}
 #	${RANLIB} libtar.a
 
