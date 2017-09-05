@@ -13,6 +13,7 @@
 #ifndef LIBTAR_H
 #define LIBTAR_H
 
+#include <stdint.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <tar.h>
@@ -63,10 +64,10 @@ struct tar_header
 
 /***** handle.c ************************************************************/
 
-typedef int (*openfunc_t)(const char *, int, ...);
-typedef int (*closefunc_t)(int);
-typedef ssize_t (*readfunc_t)(int, void *, size_t);
-typedef ssize_t (*writefunc_t)(int, const void *, size_t);
+typedef intptr_t (*openfunc_t)(const char *, int, ...);
+typedef int (*closefunc_t)(intptr_t);
+typedef ssize_t (*readfunc_t)(intptr_t, void *, size_t);
+typedef ssize_t (*writefunc_t)(intptr_t, const void *, size_t);
 
 typedef struct
 {
@@ -81,7 +82,7 @@ typedef struct
 {
 	tartype_t *type;
 	const char *pathname;
-	long fd;
+	intptr_t fd;
 	int oflags;
 	int options;
 	struct tar_header th_buf;
@@ -116,7 +117,7 @@ int tar_fdopen(TAR **t, int fd, const char *pathname, tartype_t *type,
 	       int oflags, int mode, int options);
 
 /* returns the descriptor associated with t */
-int tar_fd(TAR *t);
+intptr_t tar_fd(TAR *t);
 
 /* close tarfile handle */
 int tar_close(TAR *t);
